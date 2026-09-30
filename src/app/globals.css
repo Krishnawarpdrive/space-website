@@ -1,0 +1,90 @@
+@import "tailwindcss";
+@import "./copilot-theme.css" layer(components);
+
+@theme inline {
+  --font-sans: var(--font-space-grotesk), serif;
+  --font-heading: var(--font-rustea), sans-serif;
+  --font-manrope: var(--font-manrope), sans-serif;
+  --font-aeonik: var(--font-aeonik), sans-serif;
+  --color-copilot-orange: #f28c51;
+  --color-copilot-blue: #83efff;
+  --color-copilot-green: #a7db8d;
+  --color-copilot-border: #df4f2b;
+}
+
+@layer base {
+  /* Bootstrap 5 reboot + type scale as used by the source theme */
+  :root {
+    --bs-body-font-size: calc(0.8125rem + 0.1875vw);
+    --bs-heading-color: currentColor;
+    --bs-gray-500: #adb5bd;
+    --bs-body-font-family: var(--font-space-grotesk), serif;
+    --animation-ease-fast: ease;
+    --animation-ease: ease;
+    --animation-fast: cubic-bezier(0.75, 0, 0.25, 1);
+    --animation-primary: cubic-bezier(0.75, 0, 0.25, 1);
+    --animation-primary-expo: cubic-bezier(0.87, 0, 0.13, 1);
+    --animation-smooth: cubic-bezier(0.75, 0, 0.25, 1);
+  }
+  @media (min-width: 1200px) {
+    :root {
+      --bs-body-font-size: 1rem;
+    }
+  }
+  html {
+    @apply font-sans;
+    background-color: #000;
+  }
+  body {
+    font-family: var(--bs-body-font-family);
+    font-size: var(--bs-body-font-size);
+    font-weight: 400;
+    line-height: 1.5;
+    color: #fff;
+    background-color: #000;
+    -webkit-tap-highlight-color: transparent;
+  }
+  p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+  ul,
+  ol {
+    padding-left: 2rem;
+  }
+  a {
+    text-decoration: none;
+    color: currentColor;
+  }
+  img,
+  svg {
+    vertical-align: middle;
+  }
+  h1, .h1 { font-size: calc(1.234375rem + 6.515625vw); }
+  h2, .h2 { font-size: calc(0.9375rem + 2.0625vw); }
+  h3, .h3 { font-size: calc(0.875rem + 1.125vw); }
+  h4, .h4 { font-size: calc(0.84375rem + 0.65625vw); }
+  h5, .h5 { font-size: calc(0.83125rem + 0.46875vw); }
+  @media (min-width: 1200px) {
+    h1, .h1 { font-size: 7.75rem; }
+    h2, .h2 { font-size: 3rem; }
+    h3, .h3 { font-size: 2rem; }
+    h4, .h4 { font-size: 1.5rem; }
+    h5, .h5 { font-size: 1.3rem; }
+  }
+  .fs-5 { font-size: calc(0.83125rem + 0.46875vw) !important; }
+  @media (min-width: 1200px) {
+    .fs-5 { font-size: 1.3rem !important; }
+  }
+  /* Theme's <768 override lives in the components layer; for !important the earlier
+     (base) layer wins, so it must be restated here to keep the source cascade. */
+  @media (max-width: 767.98px) {
+    .fs-5 { font-size: 14px !important; }
+  }
+  .display-1 { font-size: 19vw; font-family: var(--font-rustea), sans-serif; font-weight: 300; line-height: 1.2; }
+  .display-2 { font-size: 16vw; font-family: var(--font-rustea), sans-serif; font-weight: 300; line-height: 1.2; }
+  .ratio { position: relative; width: 100%; }
+  .ratio::before { display: block; padding-top: var(--bs-aspect-ratio); content: ""; }
+  .ratio > * { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+}
+
